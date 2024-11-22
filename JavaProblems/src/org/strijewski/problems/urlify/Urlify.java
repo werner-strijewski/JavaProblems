@@ -32,7 +32,7 @@ public class Urlify {
             index--;
         }
 
-        return charArray; // All characters are unique
+        return charArray; // same array as input
     }
 
     public static void main(String[] args) {
