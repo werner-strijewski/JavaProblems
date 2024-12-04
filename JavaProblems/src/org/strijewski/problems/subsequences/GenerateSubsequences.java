@@ -9,21 +9,22 @@ import java.util.List;
 // at each character we either 1) keep it 2) discard it
 public class GenerateSubsequences {
 
-    static void generateSubsequences(String input, String current, List<String> result) {
-        // base case: input string is zero length, so we add the current string to the result list
+    private static void generateSubsequences(String input, String current, List<String> resultList) {
+        // base case: if input length is zero, we have a subsequence
         if (input.length() == 0) {
-            result.add(current);
+            resultList.add(current);
         } else {
-            // decision 1: keep current character
-            String nextCharacter = input.substring(0, 1);
-            generateSubsequences(input.substring(1), current + nextCharacter , result);
-            // decision 2: discard current character
-            generateSubsequences(input.substring(1), current, result);
+            // case 1. add the current character
+            String currentCharacter = input.substring(0,1);
+            generateSubsequences(input.substring(1), current+currentCharacter, resultList);
+            // case 2. drop the current character
+            generateSubsequences(input.substring(1), current, resultList);
         }
     }
+
     public static void main(String[] args) {
         List<String> resultList1 = new ArrayList<>();
-        generateSubsequences("aythfn", "", resultList1);
+        generateSubsequences("ayth", "", resultList1);
         System.out.println("Subsequences for 'aythfn': " + resultList1);
 
         List<String> resultList2 = new ArrayList<>();

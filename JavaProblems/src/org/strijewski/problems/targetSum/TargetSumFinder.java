@@ -6,7 +6,7 @@ import java.util.List;
 public class TargetSumFinder {
 
     public static void main(String[] args) {
-        int[] inputArray = {2, 3, 6, 7};
+        int[] inputArray = {2, 3, 4, 5, 6, 7};
         int target = 7;
 
         List<List<Integer>> result = findTargetSumCombinations(inputArray, target);
